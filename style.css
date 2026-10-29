@@ -1,0 +1,77 @@
+/* The First Time Iko Broke His Arm — styles
+   Palette: black #000, ivory #f4f1ec, silver #b9bcc2, crimson #c0172d, ember #7a0f1c */
+:root{
+  --bg:#000; --ink:#f4f1ec; --silver:#b9bcc2; --dim:#8b8e95;
+  --crimson:#c0172d; --ember:#7a0f1c; --line:rgba(185,188,194,.18);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Noto Serif",Georgia,serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --bn:"Noto Serif Bengali","Hind Siliguri","Noto Sans Bengali","Kalpurush","SolaimanLipi",Vrinda,Nirmala UI,sans-serif;
+  --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;overflow-x:hidden;min-height:100vh}
+canvas#particles{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+.glow{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(60% 40% at 50% 0%,rgba(192,23,45,.22),transparent 70%),
+             radial-gradient(50% 35% at 50% 100%,rgba(185,188,194,.07),transparent 70%)}
+main{position:relative;z-index:1;width:100%;max-width:880px;margin:0 auto;padding:clamp(1.5rem,5vw,3.5rem) clamp(1rem,4.5vw,2rem) 3rem}
+h1,h2,h3{font-family:var(--serif);font-weight:600;margin:0;line-height:1.15}
+.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* Hero */
+.hero{text-align:center;padding:clamp(1.5rem,6vw,3.5rem) 0 clamp(1.5rem,5vw,2.5rem)}
+.hero h1{font-size:clamp(1.9rem,7.2vw,3.6rem);letter-spacing:.01em;overflow-wrap:anywhere;
+  background:linear-gradient(180deg,#fff 30%,var(--silver));-webkit-background-clip:text;background-clip:text;color:transparent}
+.tagline{color:var(--crimson);font-family:var(--serif);font-style:italic;font-size:clamp(1rem,3.6vw,1.35rem);margin:1rem auto 0;max-width:34ch;filter:brightness(1.35)}
+.intro{color:var(--silver);max-width:60ch;margin:1.5rem auto 0;font-size:clamp(.98rem,3.2vw,1.08rem)}
+
+/* Stopwatch */
+.stopwatch{text-align:center;padding:clamp(1.8rem,6vw,3rem) clamp(.75rem,3vw,2rem);margin:1rem 0 2.5rem;
+  border:1px solid var(--line);border-radius:6px;
+  background:linear-gradient(180deg,rgba(192,23,45,.08),rgba(0,0,0,.55) 55%);
+  box-shadow:0 0 60px rgba(192,23,45,.12),inset 0 1px 0 rgba(255,255,255,.05)}
+.sw-title{font-size:clamp(.95rem,3.4vw,1.2rem);color:var(--silver);font-weight:500;letter-spacing:.04em}
+.days-wrap{width:100%;margin-top:1.2rem;overflow:hidden;padding:.1em 0}
+.days{display:inline-block;white-space:nowrap;font-family:var(--serif);font-weight:600;font-variant-numeric:tabular-nums;
+  font-size:clamp(4.2rem,24vw,11rem);line-height:1;color:#fff;
+  text-shadow:0 0 .35em rgba(192,23,45,.65),0 0 1.1em rgba(192,23,45,.25)}
+.days-label{margin:.4rem 0 0;font-family:var(--serif);font-size:clamp(1.3rem,5vw,2rem);color:var(--crimson);filter:brightness(1.35);letter-spacing:.18em;text-transform:uppercase}
+.hms{display:flex;justify-content:center;align-items:flex-start;gap:clamp(.3rem,2vw,1rem);margin-top:clamp(1.5rem,5vw,2.5rem)}
+.unit{display:flex;flex-direction:column;align-items:center;min-width:0}
+.num{font-family:var(--serif);font-variant-numeric:tabular-nums;font-size:clamp(1.9rem,9.5vw,4rem);line-height:1;color:var(--ink)}
+.lbl{margin-top:.5rem;font-size:clamp(.6rem,2.4vw,.8rem);letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.sep{font-family:var(--serif);font-size:clamp(1.6rem,8vw,3.4rem);line-height:1;color:var(--ember)}
+.notice{margin:1.5rem 0 0;color:var(--silver);font-style:italic}
+
+/* Story */
+.story{margin:0 0 3rem}
+.story h2{font-size:clamp(1.4rem,5vw,2rem);margin-bottom:1.2rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.story p{max-width:68ch;color:#dedbd5;font-family:var(--serif);font-size:clamp(1.02rem,3.4vw,1.15rem);line-height:1.75}
+.bn-heading{font-family:var(--bn);margin-top:3rem;font-weight:600}
+.bn-quote{margin:0;padding:1.2rem 1.2rem 1.2rem 1.3rem;border-left:3px solid var(--crimson);
+  background:linear-gradient(90deg,rgba(192,23,45,.09),transparent);
+  font-family:var(--bn);font-size:clamp(1.1rem,3.9vw,1.3rem);line-height:2;color:var(--ink);overflow-wrap:anywhere}
+.photo{margin:2.5rem 0 0;padding:0}
+.photo img{display:block;width:100%;height:auto;object-fit:contain;max-width:100%;
+  border:1px solid var(--line);border-radius:4px;background:#0a0a0a;box-shadow:0 20px 60px rgba(0,0,0,.7),0 0 40px rgba(192,23,45,.1)}
+.photo figcaption,.photo-fallback{margin-top:.8rem;text-align:center;color:var(--dim);font-size:.92rem}
+.photo-fallback{color:var(--silver);border:1px dashed var(--line);padding:2rem 1rem;border-radius:4px}
+
+/* Begin section */
+.begin h2{font-size:clamp(1.4rem,5vw,2rem);margin-bottom:1.2rem;padding-top:1.2rem;border-top:1px solid var(--line)}
+.cards{display:grid;grid-template-columns:1fr;gap:1rem}
+@media(min-width:720px){.cards{grid-template-columns:1fr 1fr}}
+.card{border:1px solid var(--line);border-radius:6px;padding:1.3rem;background:rgba(255,255,255,.025);min-width:0}
+.card h3{font-size:1.15rem;margin-bottom:1rem;color:var(--silver);font-weight:500}
+dl{margin:0}
+dt{font-size:.8rem;color:var(--dim);letter-spacing:.06em;margin-top:.8rem}
+dd{margin:.1rem 0 0;overflow-wrap:anywhere}
+.mono{font-family:var(--mono)}
+.live-date{margin:0;font-size:1.05rem}
+.live-time{margin:.3rem 0 .5rem;font-size:clamp(1.7rem,8vw,2.4rem);color:#fff;font-variant-numeric:tabular-nums}
+.fine{font-size:.82rem;color:var(--dim);margin:1rem 0 0;line-height:1.5}
+footer{margin-top:3rem;text-align:center;color:var(--dim);font-family:var(--serif);font-style:italic;font-size:.95rem}
+
+:focus-visible{outline:2px solid var(--silver);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>The First Time Iko Broke His Arm</title>
+  <meta name="description" content="An eternal stopwatch preserving the memory of the first time Iko broke his arm.">
+  <meta name="theme-color" content="#000000">
+  <!-- Optional Bengali fonts (progressive enhancement). The page works with system fonts if this is blocked. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600&family=Noto+Serif+Bengali:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <canvas id="particles" aria-hidden="true"></canvas>
+  <div class="glow" aria-hidden="true"></div>
+
+  <main>
+    <!-- HERO -->
+    <header class="hero">
+      <h1>The First Time Iko Broke His Arm</h1>
+      <p class="tagline">One Unexpected Fall. One Broken Arm. A Memory That Lasts Forever.</p>
+      <p class="intro">This website preserves the memory of the first time Iko broke his arm while playing football. The stopwatch records the time elapsed since the designated starting moment, allowing this memory to remain visible as time continues to pass.</p>
+    </header>
+
+    <!-- MAIN STOPWATCH -->
+    <section class="stopwatch" aria-labelledby="sw-title">
+      <h2 id="sw-title" class="sw-title">The time since the incident</h2>
+
+      <div class="days-wrap" id="daysWrap">
+        <span class="days" id="days" role="timer" aria-live="off">0</span>
+      </div>
+      <p class="days-label" id="daysLabel">Days</p>
+
+      <div class="hms" aria-hidden="false">
+        <div class="unit"><span class="num" id="hours">00</span><span class="lbl">Hours</span></div>
+        <span class="sep" aria-hidden="true">:</span>
+        <div class="unit"><span class="num" id="minutes">00</span><span class="lbl">Minutes</span></div>
+        <span class="sep" aria-hidden="true">:</span>
+        <div class="unit"><span class="num" id="seconds">00</span><span class="lbl">Seconds</span></div>
+      </div>
+
+      <p class="notice" id="notice" hidden>The counting has not begun yet. It starts at the moment shown below.</p>
+      <!-- Screen-reader summary, updated once a minute so it is not noisy -->
+      <p class="sr-only" id="srSummary" aria-live="polite"></p>
+    </section>
+
+    <!-- STORY -->
+    <section class="story" aria-labelledby="story-title">
+      <h2 id="story-title">Iko's Story — The First Time</h2>
+      <p>On 29 October 2026, Iko fell while playing football and broke a bone in his left arm, just above the elbow. The fracture caused the bone to become displaced. After examining him, the doctor said that it should heal properly and put his arm in a cast. The injury occurred around midday.</p>
+      <p>This website preserves the memory of that incident and the story Iko wanted to share about how it happened.</p>
+
+      <h2 class="bn-heading" lang="bn">ইকোর নিজের কথা</h2>
+      <blockquote class="bn-quote" lang="bn">"তো যারা যারা হাত কখনো ভাঙে নাই, তারা জানতে চান যে হাত কেমনে ভাঙে। আমি বলে রাখি, মানে হাত ভাঙলে কেমন ব্যথা করে। হাত ভাঙলে সেটা তেমন ব্যথা করে না, শুধু পাটা একটু মচুর খায়। পা মচুর খাইলে যেমন ব্যথা করে টিপ, তেমন ব্যথা করে। তাছাড়া আর কিছুই করে নাই । তো সত্যি বলতে আমার অনেক যে হাত ভাঙছে হচ্ছে গিয়ে ফুটবল খেলতে গিয়ে । মানে ফুটবল খেলতে গিয়ে আমি আসলে কাটিং কাটিং দেখাইতে গিয়া কি করছি ফুটবলটা পারে খেদিছি । এখন ফুটবল হইতেছে গোলাকার ফুটবল তো ব্যাকাতারা হইবই । তো ব্যাকে তারা হইছে আমি পড়ছি । আমি এবার হাত দিয়ে ঠেকাইতে গেছি, ঠেকাইতে গিয়া আবার আমার হাতই ঠেকা গেছে ।"</blockquote>
+
+      <figure class="photo">
+        <img id="memoryPhoto"
+             src="https://raw.githubusercontent.com/AlphaStopwatch/The-First-Time-Iko-Broke-His-Arm/main/IMG_20261029_211619.jpg"
+             alt="Iko smiling at the camera indoors, with his arm resting in a white plaster cast"
+             decoding="async" loading="lazy">
+        <p class="photo-fallback" id="photoFallback" hidden>The photograph could not be loaded. Check your internet connection and reload the page.</p>
+        <figcaption>Iko, with his arm in a cast — the photograph that goes with this memory.</figcaption>
+      </figure>
+    </section>
+
+    <!-- START INFO -->
+    <section class="begin" aria-labelledby="begin-title">
+      <h2 id="begin-title">The counting began</h2>
+      <div class="cards">
+        <div class="card">
+          <h3>Fixed starting moment</h3>
+          <dl>
+            <dt>Start Date</dt><dd>Thursday, 29 October 2026</dd>
+            <dt>Start Time</dt><dd>1:30:00 PM</dd>
+            <dt>Timezone</dt><dd>Bangladesh Standard Time (UTC+06:00)</dd>
+            <dt>Start Timestamp</dt><dd class="mono">2026-10-29T13:30:00+06:00</dd>
+          </dl>
+          <p class="fine">The stopwatch start is a designated moment. It is not a medically verified injury time; the injury happened around midday.</p>
+        </div>
+        <div class="card">
+          <h3>Bangladesh time right now</h3>
+          <p class="live-date" id="liveDate">—</p>
+          <p class="live-time mono" id="liveTime">--:--:--</p>
+          <p class="fine">Taken from your device clock. If that clock is wrong, the elapsed time shown above will be off by the same amount.</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>The starting time never resets. The day counter has no limit. The memory remains.</p>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
